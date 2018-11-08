@@ -16,7 +16,7 @@ from counter import Counter
 import os
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model', default='yolo3_darknet53_coco', type=str, help=
+parser.add_argument('--model', default='faster_rcnn_resnet101_v1d_coco', type=str, help=
 'Some choices: faster_rcnn_resnet101_v1d_coco, yolo3_darknet53_coco, ssd_512_mobilenet1.0_coco')
 parser.add_argument('--site', default='4B', type=str, choices={'4B', '5A'}, help='Nmae of the site.')
 parser.add_argument('--display', action='store_true', default=False, help='Display the processed video')
