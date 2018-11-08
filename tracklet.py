@@ -38,6 +38,7 @@ class KalmanBoxTracker(object):
         # statistics variables
         self.current_pos = []
         self.current_region = None
+        self.previous_region = None
 
         self.speed = 0.0
         self.trajectory = []
@@ -100,21 +101,7 @@ class KalmanBoxTracker(object):
         # self.trajectory.append((int((d[0] + d[2])/2), int((d[1] + d[3])/2)))
         self.trajectory.append((d[2], d[3]))
 
-        # ---------------------------------------------------#
-        # Here we hardcode some rules for counting by lanes
-        if not self.count_flag:
-            if self.trajectory[-1][1] >= 330:
-                self.current_region = 'B'
-                if self.trajectory[-1][0] < 250:
-                    self.vehicle_lane = 0
-                elif 250 <= self.trajectory[-1][0] < 430:
-                    self.vehicle_lane = 1
-                else:
-                    self.vehicle_lane = 2
-        else:
-            self.time_since_counted += 1
 
-        # ---------------------------------------------------#
 
 def convert_bbox_to_z(bbox):
     """

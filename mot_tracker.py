@@ -41,6 +41,7 @@ class MOTTracker:
         trks = np.ma.compress_rows(np.ma.masked_invalid(trks))
         for t in reversed(to_del):
             self.trackers.pop(t)
+            print(t)
         if dets != []:
             matched, unmatched_dets, unmatched_trks = associate_detections_to_trackers(dets, trks, iou_threshold=0.25)
 
